@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :move_to_signed_in, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
   def index
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id), notice: "User was successfully created."
     else
       render :new
     end
