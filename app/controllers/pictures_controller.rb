@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-  before_action :move_to_signed_in, only: %i[ index show new create edit update destroy ]
+  # before_action :move_to_signed_in, only: %i[ index show new create edit update destroy ]
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
@@ -12,7 +12,16 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    @picture = Picture.new
+    if params[:back]
+    @picture = Picture.new(picture_params)
+    # @picture = Picture.new
+    else
+      @feed = Feed.new
+    end
+  end
+
+  def confirm
+    @picture = Picture.new(picture_params)
   end
 
   # GET /pictures/1/edit
@@ -64,6 +73,7 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:image, :content)
+      # params.require(:picture).permit(:image, :content)
+      params.require(:picture).permit(:image, :content, :image_cache)
     end
 end
