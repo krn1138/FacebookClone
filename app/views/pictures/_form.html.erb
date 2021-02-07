@@ -12,17 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%# binding.pry %>
     <%= form.label :image %>
+    <div class="field_two">
     <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+    </div>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
 
-  <div class="field">
+
     <%= form.label :content %>
     <%= form.text_area :content %>
-  </div>
+
 
   <div class="actions">
     <%= form.submit %>

@@ -18,6 +18,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.build(picture_params)
+    # binding.pry
     render :new if @picture.invalid?
   end
 

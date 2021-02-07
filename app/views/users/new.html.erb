@@ -1,3 +1,4 @@
+<div class="sign_up">
 <h1>Sign up</h1>
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -20,3 +21,4 @@
   <%= f.password_field :password_confirmation %>
   <%= f.submit "Create my account" %>
 <% end %>
+</div>

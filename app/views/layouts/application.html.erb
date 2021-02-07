@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <header class=header_one>
+      <div class="FacebookClone">FacebookClone</div>
+    
+    </header>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -22,4 +26,6 @@
     <% end %>
     <%= yield %>
   </body>
+  <footer class="footer2">
+  </footer>
 </html>
