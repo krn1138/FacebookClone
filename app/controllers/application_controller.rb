@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def move_to_signed_in
     unless logged_in?
-      redirect_to  new_session_path
+      redirect_to  new_session_path, notice:"ログインしてください"
     end
   end
 end
